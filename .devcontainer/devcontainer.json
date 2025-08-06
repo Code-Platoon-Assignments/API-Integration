@@ -1,0 +1,26 @@
+{
+  "name": "Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "18"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode", // Code formatter
+        "dbaeumer.vscode-eslint", // Linter
+        "xabikos.JavaScriptSnippets", // JS snippets
+        "dsznajder.es7-react-js-snippets", // React/JS snippets
+        "formulahendry.auto-rename-tag", // Auto rename paired HTML/JSX tags
+        "formulahendry.auto-close-tag", // Auto close tags in HTML/JSX
+        "streetsidesoftware.code-spell-checker", // Catch typos in variables/comments
+        "ecmel.vscode-html-css", // HTML/CSS support in JS files
+        "ritwickdey.LiveServer", // Local dev server for static JS apps
+        "visualstudioexptteam.vscodeintellicode", // AI-assisted code completions
+        "ms-vscode.vscode-typescript-next" // Use the latest TS features
+      ]
+    }
+  }
+}
