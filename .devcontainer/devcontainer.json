@@ -1,26 +1,58 @@
 {
-  "name": "Dev Container",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "features": {
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "18"
-    }
+  "name": "Code Platoon Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
   },
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": { "version": "3.11" },
+    "ghcr.io/devcontainers/features/node:1": { "version": "18" },
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "forwardPorts": [5432],
+  "postCreateCommand": "git config --global user.name '<Student>' && git config --global user.email '<student@example.com>' && git config --global core.editor 'code'",
   "customizations": {
     "vscode": {
       "extensions": [
-        "esbenp.prettier-vscode", // Code formatter
-        "dbaeumer.vscode-eslint", // Linter
-        "xabikos.JavaScriptSnippets", // JS snippets
-        "dsznajder.es7-react-js-snippets", // React/JS snippets
-        "formulahendry.auto-rename-tag", // Auto rename paired HTML/JSX tags
-        "formulahendry.auto-close-tag", // Auto close tags in HTML/JSX
-        "streetsidesoftware.code-spell-checker", // Catch typos in variables/comments
-        "ecmel.vscode-html-css", // HTML/CSS support in JS files
-        "ritwickdey.LiveServer", // Local dev server for static JS apps
-        "visualstudioexptteam.vscodeintellicode", // AI-assisted code completions
-        "ms-vscode.vscode-typescript-next" // Use the latest TS features
+        // Python & Django
+        "ms-python.python",                // Core Python support
+        "ms-python.vscode-pylance",        // Python language server
+        "ms-toolsai.jupyter",              // Jupyter notebooks
+        "batisteo.vscode-django",          // Django support
+        "kevinrose.vsc-python-indent",     // Fixes Python indentation
+        "njpwerner.autodocstring",         // Auto-generate docstrings
+        "littlefoxteam.vscode-python-test-adapter", // Testing integration
+
+        // Node & React
+        "dbaeumer.vscode-eslint",          // JavaScript/TypeScript linting
+        "esbenp.prettier-vscode",          // Code formatter
+        "xabikos.javascriptsnippets",      // JavaScript snippets
+        "dsznajder.es7-react-js-snippets", // React snippets (ES7+)
+        "formulahendry.auto-rename-tag",   // Auto rename paired HTML/JSX tags
+        "formulahendry.auto-close-tag",    // Auto close tags
+        "mgmcdermott.vscode-language-babel", // Better React/JSX syntax highlighting
+
+        // Live Server & Live Share
+        "ritwickdey.liveserver",           // Live Server for HTML/CSS/JS
+        "ms-vsliveshare.vsliveshare",      // Live Share collaboration
+
+        // PostgreSQL
+        "mtxr.sqltools",                   // SQL management GUI
+        "microsoft.vscode-database",       // Database support
+        "cweijan.vscode-postgresql-client2", // PostgreSQL client
+
+        // Docker & APIs
+        "ms-azuretools.vscode-docker",     // Docker integration
+        "humao.rest-client",               // REST client for testing APIs
+
+        // Git
+        "mhutchie.git-graph",              // Visual Git graph
+        "eamodio.gitlens",                 // GitLens for advanced Git features
+
+        // Utilities
+        "streetsidesoftware.code-spell-checker" // Spell checker
       ]
     }
   }
 }
+
